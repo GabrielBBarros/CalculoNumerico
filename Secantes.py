@@ -8,6 +8,7 @@ def secant_method(x0, x1, tol, max_iter):
             return x2
         x0 = x1
         x1 = x2
+        print("Iteração {}: x = {}".format(i, x2))
         i += 1
     print("O método das secantes não convergiu após {} iterações.".format(max_iter))
 
