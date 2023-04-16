@@ -11,6 +11,9 @@ def bisseccao(f, a, b, tol):
     
     # Repete até que a diferença entre os extremos do intervalo seja menor do que a tolerância
     while abs(b - a) > tol:
+        
+        print("Iteração {}: x = {}".format(i, c))  
+        
         # Verifica se a raiz está no intervalo [a, c] ou [c, b]
         if f(c) == 0:
             return c
@@ -29,9 +32,9 @@ def bisseccao(f, a, b, tol):
 
 
 f = lambda x: x**2 - 2
-a = 0
+a = 1
 b = 2
-tol = 0.0001
+tol = 1e-6
 
 raiz = bisseccao(f, a, b, tol)
 print(raiz)

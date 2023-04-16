@@ -1,6 +1,4 @@
-
-
-def secant_method(x0, x1, tol, max_iter):
+def secant_method(x0, x1, tol, max_iter, funcao):
     i = 0
     while i < max_iter:
         x2 = x1 - funcao(x1) * (x1 - x0) / (funcao(x1) - funcao(x0))

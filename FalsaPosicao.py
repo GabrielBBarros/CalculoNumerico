@@ -33,6 +33,9 @@ def falsa_posicao(funcao, a, b, tolerancia, max_iter):
         # Avalia a função no ponto x
         fx = funcao(x)
 
+        # Imprime o resultado e o numero de iterações
+        print("Iteração {}: x = {}".format(i, x))  
+        
         # Verifica se a aproximação é suficientemente precisa
         if abs(fx) < tolerancia:
             return x
@@ -52,7 +55,7 @@ def falsa_posicao(funcao, a, b, tolerancia, max_iter):
 funcao = lambda x: x**2 - 2
 a = 1
 b = 2
-tolerancia = 1e-6
+tolerancia = 1e-20
 max_iter = 100
 root = falsa_posicao(funcao,a, b, tolerancia, max_iter)
 print("A raiz encontrada é: {}".format(root))
