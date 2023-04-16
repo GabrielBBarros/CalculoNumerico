@@ -52,8 +52,6 @@ def falsa_posicao(funcao, a, b, tolerancia, max_iter):
     print("Número máximo de iterações atingido!")
     return None
 
-
-
 funcao = lambda x: x**3 + cos(x)
 a = -1
 b = 1

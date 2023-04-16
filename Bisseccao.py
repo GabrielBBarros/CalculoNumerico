@@ -30,8 +30,6 @@ def bisseccao(f, a, b, tol):
     # Retorna o resultado encontrado
     return c
 
-
-
 f = lambda x: x**3 + cos(x)
 a = 0
 b = 1
