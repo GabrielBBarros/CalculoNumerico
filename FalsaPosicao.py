@@ -1,3 +1,5 @@
+from cmath import e, cos
+
 def falsa_posicao(funcao, a, b, tolerancia, max_iter):
     """
     Encontra a raiz da função funcao no intervalo [a, b] pelo método da falsa posição.
@@ -52,10 +54,10 @@ def falsa_posicao(funcao, a, b, tolerancia, max_iter):
 
 
 
-funcao = lambda x: x**2 - 2
-a = 1
-b = 2
-tolerancia = 1e-20
+funcao = lambda x: x**3 + cos(x)
+a = -1
+b = 1
+tolerancia = 1e-5
 max_iter = 100
 root = falsa_posicao(funcao,a, b, tolerancia, max_iter)
 print("A raiz encontrada é: {}".format(root))

@@ -1,3 +1,4 @@
+from cmath import e, cos
 def bisseccao(f, a, b, tol):
     """Método da bissecção para encontrar a raiz da função f(x) no intervalo [a, b] com uma tolerância tol."""
     # Verifica se a função tem sinais opostos nos extremos do intervalo
@@ -31,10 +32,10 @@ def bisseccao(f, a, b, tol):
 
 
 
-f = lambda x: x**2 - 2
-a = 1
-b = 2
-tol = 1e-6
+f = lambda x: x**3 + cos(x)
+a = 0
+b = 1
+tol = 1e-5
 
 raiz = bisseccao(f, a, b, tol)
 print(raiz)

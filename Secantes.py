@@ -1,4 +1,6 @@
-def secant_method(x0, x1, tol, max_iter, funcao):
+from cmath import e, cos
+
+def secant_method(x0, x1, tol, max_iter):
     i = 0
     while i < max_iter:
         x2 = x1 - funcao(x1) * (x1 - x0) / (funcao(x1) - funcao(x0))
@@ -11,10 +13,10 @@ def secant_method(x0, x1, tol, max_iter, funcao):
     print("O método das secantes não convergiu após {} iterações.".format(max_iter))
 
 # Exemplo de uso
-funcao = lambda x: x**2 - 2
-x0 = 1
-x1 = 2
-tol = 1e-6
+funcao = lambda x: x**3 + cos(x)
+x0 = -1
+x1 = 1
+tol = 1e-5
 max_iter = 100
 root = secant_method(x0, x1, tol, max_iter)
 print("A raiz encontrada é: {}".format(root))
