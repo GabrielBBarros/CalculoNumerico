@@ -1,7 +1,8 @@
 import numpy as np
 
-def eliminacao_gauss(A, b):
+def eliminGauss(A, b):
     n = len(b)
+    b = b.astype(float)
     A = A.astype(float)
     # Etapa de escalonamento
     for k in range(n-1):  # Loop sobre as colunas
@@ -22,13 +23,13 @@ def eliminacao_gauss(A, b):
     return x
 
 
-A = np.array([[2, -1, 1],
-              [3, 2, -2],
-              [1, 1, 1]])
+A = np.array([[3, 3, 1],
+              [2, 2, -1],
+              [1, -1, 5]])
 
-b = np.array([5, -1, 3])
+b = np.array([1, 1, 1])
 
-x = eliminacao_gauss(A, b)
+x = eliminGauss(A, b)
 
 print("Solução:")
 for i, xi in enumerate(x):
