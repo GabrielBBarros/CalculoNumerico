@@ -23,7 +23,7 @@
 # possui regiões planas ou quase planas perto da raiz. Nesses casos, métodos mais avançados, como o método de 
 # Newton-Raphson, podem ser mais eficientes.
 
-from cmath import e, cos
+import numpy as np
 
 def falsa_posicao(funcao, a, b, tolerancia, max_iter):
     """
@@ -42,27 +42,27 @@ def falsa_posicao(funcao, a, b, tolerancia, max_iter):
         return b
 
     # Verifica se o intervalo é adequado
-    if fa * fb > 0:
+    if np.sign(fa) * np.sign(fb) > 0:
         print("Intervalo inadequado!")
         return None
 
     # Inicia a iteração
     for i in range(max_iter):
         # Calcula a nova aproximação pelo método da secante
-        x = b - fb*(b-a)/(fb-fa)
+        x = b - fb * (b - a) / (fb - fa)
 
         # Avalia a função no ponto x
         fx = funcao(x)
 
         # Imprime o resultado e o numero de iterações
-        print("Iteração {}: x = {}".format(i, x))  
-        
+        print("Iteração {}: x = {}".format(i, x))
+
         # Verifica se a aproximação é suficientemente precisa
         if abs(fx) < tolerancia:
             return x
 
         # Atualiza os limites do intervalo
-        if fa * fx < 0:
+        if np.sign(fa) * np.sign(fx) < 0:
             b, fb = x, fx
         else:
             a, fa = x, fx
@@ -71,10 +71,9 @@ def falsa_posicao(funcao, a, b, tolerancia, max_iter):
     print("Número máximo de iterações atingido!")
     return None
 
-funcao = lambda x: x**3 + cos(x)
-a = -1
-b = 1
-tolerancia = 1e-5
-max_iter = 100
-root = falsa_posicao(funcao,a, b, tolerancia, max_iter)
+f = lambda x: x**3 - 4
+a = 1
+b = 3
+tol = 1e-5
+root = falsa_posicao(f, a, b, tol, 100)
 print("A raiz encontrada é: {}".format(root))

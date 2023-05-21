@@ -51,10 +51,8 @@ def bisseccao(f, a, b, tol):
 
 x = symbols('x')
 f = lambda x: x**3 - 4
-
 a = 1
 b = 3
 tol = 1e-5
-
 raiz = bisseccao(f, a, b, tol)
 print(raiz)
