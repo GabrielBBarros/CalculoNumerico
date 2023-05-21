@@ -1,3 +1,17 @@
+# O método de Jacobi é um algoritmo iterativo utilizado para resolver sistemas de equações lineares. Ele é especialmente útil quando o sistema é grande e esparsamente populado.
+
+# O método de Jacobi funciona da seguinte maneira:
+ 
+# 1- Dado um sistema de equações lineares na forma matricial Ax = b, onde A é a matriz dos coeficientes, x é o vetor desconhecido e b é o vetor de termos independentes, podemos reescrever a equação como Ax = (L + D + U)x = b, onde L é a matriz triangular inferior, D é a matriz diagonal e U é a matriz triangular superior de A.
+ 
+# 2- A equação pode ser então reescrita como (D)x = (b - (L + U)x), onde D é invertível.
+ 
+# 3- A partir dessa equação, podemos iterativamente calcular a solução aproximada x em cada iteração. A fórmula de iteração de Jacobi é dada por: x(k+1) = D^(-1) * (b - (L + U)x(k)) onde x(k) é a aproximação atual na k-ésima iteração e x(k+1) é a aproximação na próxima iteração. D^(-1) representa a matriz inversa de D.
+ 
+# 4- O processo de iteração continua até que a solução converja para um determinado critério de parada, como uma tolerância pré-definida ou um número máximo de iterações.
+
+# Em resumo, o método de Jacobi divide o sistema original em uma série de equações lineares mais simples, que são iterativamente resolvidas para obter uma solução aproximada. O método continua a iterar até que a solução convirja para uma solução aceitável.
+
 import numpy as np
 from numpy import linalg as la
 
