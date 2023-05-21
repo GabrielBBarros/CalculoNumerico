@@ -27,11 +27,12 @@ def newton_raphson(f, x0, tolerance, max_it):
         if abs(fx.subs(x, x0).evalf()) < tolerance:
             return x0
         x0 = x0 - fx.subs(x, x0).evalf() / dfx.subs(x, x0).evalf()
+        print ("Iteração {}: x = {}".format(i, x0))
     return None
 
 # Example usage:
 x = symbols('x')
-funcao = lambda x: x**2 - 4
+funcao = lambda x: x**3 - 4
 tol = 1e-5
 root = newton_raphson(funcao, 1, tol, 100)
 print("Root found:", root)

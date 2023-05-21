@@ -50,7 +50,7 @@ def bisseccao(f, a, b, tol):
 
 
 x = symbols('x')
-f = lambda x: x**2 - 4
+f = lambda x: x**3 - 4
 
 a = 1
 b = 3
