@@ -17,7 +17,6 @@
 # O método de eliminação de Gauss é eficiente e amplamente utilizado para resolver sistemas de equações lineares, pois simplifica o sistema, tornando-o mais fácil de resolver.
 
 import numpy as np
-
 def eliminGauss(A, b):
     n = len(b)
     b = b.astype(float)
@@ -30,7 +29,6 @@ def eliminGauss(A, b):
             # Operações de eliminação
             A[i,k+1:n] -= m * A[k,k+1:n]
             b[i] -= m * b[k]
-    
     # Etapa de substituição retroativa
     x = np.zeros(n)
     x[n-1] = b[n-1] / A[n-1,n-1]  # Última variável desconhecida
@@ -39,10 +37,7 @@ def eliminGauss(A, b):
         x[i] = (b[i] - np.dot(A[i,i+1:n], x[i+1:n])) / A[i,i]
     
     return x
-
 # metodo Gauss Pivotamente parcial
-import numpy as np
-
 def eliminGauss_pivot(A, b):
     n = len(b)
     A = A.astype(float)
@@ -61,23 +56,24 @@ def eliminGauss_pivot(A, b):
             # Operações de eliminação
             A[i,k+1:n] -= m * A[k,k+1:n]
             b[i] -= m * b[k]
-    
     # Etapa de substituição retroativa
     x = np.zeros(n)
     x[n-1] = b[n-1] / A[n-1,n-1]  # Última variável desconhecida
     for i in range(n-2, -1, -1):  # Loop reverso sobre as linhas
         # Cálculo das variáveis desconhecidas restantes
         x[i] = (b[i] - np.dot(A[i,i+1:n], x[i+1:n])) / A[i,i]
-    
     return x
 
-A = np.array([[3, 3, 1],
-              [2, 2, -1],
-              [1, -1, 5]])
+A = np.array([[1, 1, 1],
+              [2, 1, -1],
+              [2, 2, 1]])
+b = np.array([1, 0, 1])
 
-b = np.array([7, 3, 5])
+C = np.array([[np.e, 2],
+              [1, np.e]])
+d = np.array([4, 3])
 
-x = eliminGauss_pivot(A, b)
+x = eliminGauss(C, d)
 
 print("Solução:")
 for i, xi in enumerate(x):
