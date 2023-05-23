@@ -17,11 +17,11 @@ def lagrange_interpolation(x, y, xi):
 
 
 # Exemplo de pontos conhecidos
-x = [1, 2, 3]
-y = [1, 4, 9]
+x = [2, 4, 6]
+y = [-18, 28, 106]
 
 # Valor a ser interpolado
-xi = 2.5
+xi = 5
 
 # Realiza a interpolação
 result = lagrange_interpolation(x, y, xi)
