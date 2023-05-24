@@ -1,0 +1,22 @@
+normalizar o sistema dividihndo cada linha pelo elemento da diagonal:
+    exemplo: 
+            |5  1   1|  ->  |1      1/5  1/5|
+            |3  4   1|  ->  |3/4    1    1/4| 
+            |3  3   6|  ->  |1/2    1/2    1|
+
+métodos     | Linhas | Colunas |  Sassen Feld  |
+------------------------------------------------
+Jacobi      |   V    |    V    |       F       |
+Gauss       |   V    |    F    |       v       |
+
+Linhas: se o valor absoluto da diagonal principal for maior que o das linhas para todos os casos
+    exemplo: 
+            |1/5| + |1/5|  <? 1
+            |3/4| + |1/4|  <? 1 
+            |1/2| + |1/2|  <? 1
+
+Colunas: se o valor absoluto da diagonal principal for maior que o das colunas para todos os casos
+    exemplo: 
+            |3/4| + |1/2|  <? 1
+            |1/5| + |1/2|  <? 1 
+            |1/5| + |1/4|  <? 1
