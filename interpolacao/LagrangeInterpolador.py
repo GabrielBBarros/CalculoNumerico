@@ -20,6 +20,7 @@ f = lambda x: 4*np.cos(x) - np.e**x
 fx = []
 for i in range(n): 
     fx.append(round(f(x[i]), 3))
-    
+print(f'x = {x}')
+print(f'fx = {fx}')
 yi = lagrange(x, fx, 1.85)
-print(f'\nO valor interpolado em xi = {1.85} é yi = {yi}')
+print(f'\nf(1.85) = {f(1.85)}')
