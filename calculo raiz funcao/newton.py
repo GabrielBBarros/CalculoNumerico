@@ -17,7 +17,7 @@
 # x_{n+1} é a nova estimativa mais precisa da raiz.
 
 import numpy as np
-from sympy import symbols, diff, cos
+from sympy import symbols, diff, cos, exp
 
 def newton_raphson(f, x0, tolerance, max_it):
     x = symbols('x')
@@ -32,7 +32,8 @@ def newton_raphson(f, x0, tolerance, max_it):
 
 # Example usage:
 x = symbols('x')
-funcao = lambda x: x**3 - 4
-tol = 1e-5
-root = newton_raphson(funcao, 1, tol, 100)
+x0 =1
+funcao = lambda x: 4*cos(x) - exp(x)
+tol = 1e-8
+root = newton_raphson(funcao, x0, tol, 100)
 print("Root found:", root)

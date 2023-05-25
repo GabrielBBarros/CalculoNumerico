@@ -16,6 +16,7 @@
 #O método da bissecção é um método iterativo que garante a convergência para uma raiz, desde que a função seja contínua no intervalo considerado e tenha uma mudança de sinal dentro dele. No entanto, o método pode ser relativamente lento em comparação com outros métodos de otimização, especialmente para funções complexas ou intervalos grandes.
 
 from sympy import symbols, diff, cos
+import numpy as sp
 
 def bisseccao(f, a, b, tol):
     """Método da bissecção para encontrar a raiz da função f(x) no intervalo [a, b] com uma tolerância tol."""
@@ -27,12 +28,9 @@ def bisseccao(f, a, b, tol):
     # Inicializa o ponto médio e o número de iterações
     c = (a + b) / 2
     i = 0
-
     # Repete até que a diferença entre os extremos do intervalo seja menor do que a tolerância
     while abs(b - a) > tol:
-
         print("Iteração {}: x = {}".format(i, c))
-
         # Verifica se a raiz está no intervalo [a, c] ou [c, b]
         if f(c) == 0:
             return c
@@ -40,19 +38,14 @@ def bisseccao(f, a, b, tol):
             b = c
         else:
             a = c
-
         # Atualiza o ponto médio e o número de iterações
         c = (a + b) / 2
         i += 1
-
     # Retorna o resultado encontrado
     return c
-
-
-x = symbols('x')
-f = lambda x: x**3 - 4
-a = 1
-b = 3
-tol = 1e-5
+f = lambda x: lambda x: 4*cos(x) - sp.exp(x)
+a = -0.5
+b = 2
+tol = 1e-8
 raiz = bisseccao(f, a, b, tol)
 print(raiz)

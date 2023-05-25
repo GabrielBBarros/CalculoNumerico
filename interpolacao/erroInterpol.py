@@ -10,9 +10,9 @@ def calculaErro(derF, x0, x, max, n):
   return fatN*valorDerivada*mul
 
 #@title Aplicação erro interpolador
-f  = lambda x: np.cos(x)*4 - np.exp(x)
-max = 2 
-x0 = 1.85
-x = np.array([1.7, 1.8, 1.9, 2.0])
-n = 3
+f  = lambda x: -np.sin(x)**2 + np.cos(x)**2
+max = 2 #maior valor absoluto dos pointos x
+x0 = 1.25 #ponto a ser interpolado
+x = np.array([0.404, 0.338, 0.258]) #pontos conhecidos de x
+n = 2 #grau do polinomio
 print(calculaErro(f, x0, x, max, n))

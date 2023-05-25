@@ -24,14 +24,15 @@ def lag(x, y):
   poly = np.sum(poly, axis=0)
   return poly
 
-x = [1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0]
+x = [1.1, 1.2, 1.3]
 n = len(x)
 f = lambda x: 4*np.cos(x) - np.e**x
-fx = []
-for i in range(n): 
-    fx.append(round(f(x[i]), 3))
+fx = [0.404, 0.338, 0.258]
+#for i in range(n): 
+#    fx.append(round(f(x[i]), 3))
 
 polinomio = lag(x, fx)
 f = np.poly1d(polinomio)
+print(f) #imprime o polinomio
 print(lag(x, fx))
-print(f(1.85))
+print(f(1.25)) #imprime o resultado de f(1.85)

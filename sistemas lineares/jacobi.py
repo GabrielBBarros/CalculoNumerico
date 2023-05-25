@@ -12,6 +12,7 @@
 
 # Em resumo, o método de Jacobi divide o sistema original em uma série de equações lineares mais simples, que são iterativamente resolvidas para obter uma solução aproximada. O método continua a iterar até que a solução convirja para uma solução aceitável.
 
+# verificação: pela coluna é valido, invalido pela diagonal e sa
 import numpy as np
 from numpy import linalg as la
 
@@ -22,32 +23,25 @@ def jacobi(A, b, x0 = None, tol = 50, max_iter = 1e-4):
     L = np.tril(A, -1)
     R = np.triu(A, 1)
     n = A.shape[0]
-    
     # for i in range(n):
     #     D[i, i] = 1/D[i, i]
     invD = la.inv(D)
-    
     B = -invD @ (L + R)
     g = invD @ b
-    
     for it in range(max_iter):
         x = B @ x0 + g
-        
         err = la.norm(x - x0)/la.norm(x)
-        
         if err < tol:
             return x, it
-        
         x0 = x
-        
     print('Maximo de iteracoes atingido')
     return x, max_iter
-
-A = np.array([[10., 2, 1], [1, 5, 1], [2, 3, 10]])
+A = np.array([[3., 1, 2],
+              [1, 4, 1],
+              [1, 1, 7]])
 b = np.zeros((3, 1))
 b[0] = 7
-b[1] = -8
-b[2] = 6
-
-x, it = jacobi(A, b, tol = 1e-4, max_iter = 10)
+b[1] = -4
+b[2] = 20
+x, it = jacobi(A, b, tol = 1e-9, max_iter = 100)
 print(f'Solução: {x} em {it} iterações')
