@@ -1,0 +1,15 @@
+Quadratura de Gauss-Legendre:
+    Características: Este método utiliza os zeros do polinômio de Legendre como pontos de amostragem e pesos correspondentes.
+    Aplicação: É amplamente utilizado para integrar funções em intervalos finitos e é especialmente eficaz para funções suaves.
+
+Quadratura de Gauss-Laguerre:
+    Características: Utiliza os zeros do polinômio de Laguerre como pontos de amostragem e pesos correspondentes.
+    Aplicação: É adequado para integrar funções em intervalos infinitos positivos, onde a função peso é do tipo e^(-x) * f(x).
+
+Quadratura de Gauss-Chebyshev:
+    Características: Utiliza os zeros do polinômio de Chebyshev de primeira espécie como pontos de amostragem e pesos correspondentes.
+    Aplicação: É útil para integrar funções em intervalos finitos, especialmente quando a função possui singularidades no intervalo [-1, 1].
+
+Quadratura de Gauss-Hermite:
+    Características: Utiliza os zeros do polinômio de Hermite como pontos de amostragem e pesos correspondentes.
+    Aplicação: É aplicado para integrar funções em intervalos infinitos, onde a função peso é do tipo e^(-x^2).
