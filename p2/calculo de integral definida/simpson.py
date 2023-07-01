@@ -1,3 +1,9 @@
+'''
+Calculo de aproximação de integral,
+calcular a area de um intervalo entre uma curva de uma função com o eixo das abcissas,
+h = (xn - x1) / 2 ((n - 1) / 2)
+Is = (h / 3) * (f(x1) + 4f(x2) + f(x3)) ... (f(xn) + 4f(xn+1) + f(xn+2))
+'''
 import numpy as np
 def f(x):
      return (5*x*np.sqrt(x)/(2))

@@ -18,8 +18,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Pontos tabelados (xi, yi)
-x = np.array([0, 1, 2, 3, 4, 5])
-y = np.array([-1, 0, 3, 8, 15, 24])
+x = np.array([0, 1, 2, 3, 4, 5, 6])
+y = np.array([0, -4, -2, 12, 44, 100, 186])
 
 # Construir as matrizes X e Y
 X = np.column_stack((np.ones_like(x), x**3))
